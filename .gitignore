@@ -1,0 +1,50 @@
+# Python & Django
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg
+*.egg-info/
+*.sqlite3
+db.sqlite3
+
+# Django specific
+media/
+staticfiles/
+.env
+.env.local
+.env.*.local
+/secrets.json
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs & Cache
+*.log
+*.pot
+*.pyc
+*.mo
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
