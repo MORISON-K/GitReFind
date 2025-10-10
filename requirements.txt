@@ -1,0 +1,12 @@
+asgiref
+Django
+djangorestframework
+django-cors-headers
+dj-database-url
+gunicorn
+psycopg2-binary
+whitenoise
+djangorestframework-simplejwt
+python-dotenv
+python-decouple
+gunicorn
