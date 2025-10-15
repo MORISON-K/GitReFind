@@ -25,7 +25,7 @@ const SearchPage: React.FC = () => {
 
     try {
       const response = await axios.get<{ items: Repo[] }>(`/api/search/`, { params: { q: query } });
-      setResults(response.data.items);
+      setResults(response.data.items || response.data || []);
       
       const history = JSON.parse(localStorage.getItem('search-history') || '[]');
       const newHistory = [query, ...history.filter((item: string) => item !== query)].slice(0, 10);
