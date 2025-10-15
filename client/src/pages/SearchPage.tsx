@@ -14,7 +14,10 @@ const SearchPage: React.FC = () => {
 
   const handleSearch = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (!query.trim()) return;
+    if (!query.trim()) {
+      setResults([]);
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -27,7 +30,6 @@ const SearchPage: React.FC = () => {
       const history = JSON.parse(localStorage.getItem('search-history') || '[]');
       const newHistory = [query, ...history.filter((item: string) => item !== query)].slice(0, 10);
       localStorage.setItem('search-history', JSON.stringify(newHistory));
-
     } catch (err) {
       setError('Failed to fetch results. Please try again.');
       console.error(err);
@@ -46,24 +48,27 @@ const SearchPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <form onSubmit={handleSearch} className="mb-8">
+    <div className="flex flex-col items-center min-h-[30vh] px-4 py-10">
+      {/* Search Bar */}
+      <form onSubmit={handleSearch} className="w-full max-w-2xl mb-8">
         <div className="relative">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for GitHub repositories..."
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-full shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          <MagnifyingGlassIcon className="h-6 w-6 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
         </div>
       </form>
 
+      {/* Loading / Error */}
       {loading && <p className="text-center">Loading...</p>}
       {error && <p className="text-center text-red-500">{error}</p>}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Results */}
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
         {results.map(repo => (
           <RepoCard key={repo.id} repo={repo} />
         ))}
