@@ -34,8 +34,8 @@ The backend is a Django application that provides a REST API for the frontend an
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/your-username/RepoFind.git
-   cd RepoFind
+   git clone https://github.com/MORISON-K/GitReFind.git
+   cd GitReFind
    ```
 
 2. **Set up the backend:**
