@@ -33,21 +33,21 @@ const RepoDetail: React.FC = () => {
   if (!details) return <p className="text-center">Repository not found.</p>;
 
   return (
-    <div>
-      <Link to="/search" className="inline-flex items-center mb-6 text-blue-600 hover:underline">
+    <div className='min-h-screen'>
+      <Link to="/search" className="inline-flex items-center mb-6 text-blue-600 dark:text-teal-50 hover:underline">
         <ArrowLeftIcon className="h-4 w-4 mr-2" />
         Back to Search
       </Link>
 
-      <div className="bg-white shadow-lg rounded-lg p-4 sm:p-8">
+      <div className="bg-white shadow-lg rounded-lg p-4 sm:p-8 dark:bg-slate-950 dark:text-white">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 break-all mb-2 sm:mb-0">{details.full_name}</h1>
-          <a href={details.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 self-start sm:self-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 break-all mb-2 sm:mb-0 dark:text-white">{details.full_name}</h1>
+          <a href={details.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 dark:hover:bg-slate-50 self-start sm:self-center dark:text-slate-400">
             <EyeIcon className="h-6 w-6" />
           </a>
         </div>
 
-        <p className="text-gray-600 mb-6">{details.description}</p>
+        <p className="text-gray-600 mb-6 dark:text-white">{details.description}</p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-8">
           <div className="p-4 bg-gray-100 rounded-lg">

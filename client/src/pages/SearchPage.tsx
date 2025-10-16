@@ -48,7 +48,7 @@ const SearchPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center min-h-[30vh] px-4 py-10">
+    <div className="flex flex-col items-center min-h-screen px-4 py-20">
       {/* Search Bar */}
       <form onSubmit={handleSearch} className="w-full max-w-2xl mb-8">
         <div className="relative">
@@ -57,14 +57,14 @@ const SearchPage: React.FC = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for GitHub repositories..."
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-full shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-full shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-slate-300 dark:text-white"
           />
           <MagnifyingGlassIcon className="h-6 w-6 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
         </div>
       </form>
 
       {/* Loading / Error */}
-      {loading && <p className="text-center">Loading...</p>}
+      {loading && <p className="text-center dark:text-white">Loading...</p>}
       {error && <p className="text-center text-red-500">{error}</p>}
 
       {/* Results */}

@@ -16,9 +16,9 @@ const HistoryPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 sm:p-8">
+    <div className="bg-white shadow-lg rounded-lg p-4 sm:p-8 min-h-screen dark:bg-gray-950">
       <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">Search History</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-4 sm:mb-0 dark:text-white">Search History</h1>
         {history.length > 0 && (
           <button
             onClick={clearHistory}
@@ -32,8 +32,8 @@ const HistoryPage: React.FC = () => {
       {history.length > 0 ? (
         <ul className="space-y-3">
           {history.map((term, index) => (
-            <li key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
-              <Link to={`/search?q=${encodeURIComponent(term)}`} className="text-blue-600 hover:underline truncate mr-4">
+            <li key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-slate-800 rounded-md">
+              <Link to={`/search?q=${encodeURIComponent(term)}`} className="text-blue-600 hover:underline truncate mr-4 dark:text-white">
                 {term}
               </Link>
               <ClockIcon className="h-5 w-5 text-gray-400 flex-shrink-0" />
@@ -41,7 +41,7 @@ const HistoryPage: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <p className="text-gray-500 text-center py-4">Your search history is empty.</p>
+        <p className="text-gray-500 text-center py-4 dark:text-white text-2xl">Your search history is empty.</p>
       )}
     </div>
   );

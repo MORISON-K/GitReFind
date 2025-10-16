@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <main className="px-4 sm:px-6 lg:px-8 py-8">
+      <main className="px-4 sm:px-6 lg:px-8 py-8 dark:bg-neutral-950">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchPage />} />
